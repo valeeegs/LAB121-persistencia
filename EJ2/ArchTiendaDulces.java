@@ -52,12 +52,12 @@ public class ArchTiendaDulces {
 	  }
 	 
 	 public void Palindromo() throws IOException {
-		 ObjectInputStream archTB = null;
+		 ObjectInputStream archTD = null;
 	        try {
-	            archTB = new ObjectInputStream(new FileInputStream(nombreArch));
+	            archTD = new ObjectInputStream(new FileInputStream(nombreArch));
 	            while (true) {
 	            	regTiendaD = new TiendaDulces();
-	                regTiendaD = (TiendaDulces) archTB.readObject();
+	                regTiendaD = (TiendaDulces) archTD.readObject();
 	                if(regTiendaD.nombrePalindromo()) {
 	                	regTiendaD.mostrarT();
 	                }
@@ -65,7 +65,32 @@ public class ArchTiendaDulces {
 	        } catch (Exception e) {
 	            System.out.println("----  Fin del Listado!!  ----");
 	        } finally {
-	            archTB.close();
+	            archTD.close();
+	        }
+	 }
+	 
+	 public void DuplicatePrice() throws IOException{
+		 ObjectInputStream archTD = null;
+	        ObjectOutputStream archTD2 = null;
+	        try {
+	            archTD = new ObjectInputStream(new FileInputStream(nombreArch));
+	            archTD2 = new ObjectOutputStream(new FileOutputStream("copia.dat", true));
+	            while (true) {
+	            	regTiendaD = new TiendaDulces();
+	                regTiendaD = (TiendaDulces) archTD.readObject();
+	                regTiendaD.duplicarPrecio();
+	                archTD2.writeObject(regTiendaD);
+	                
+	            }
+	        } catch (Exception e) {
+	            System.out.println("----  Se duplicó los precios ----");
+	        } finally {
+	            archTD.close();
+	            archTD2.close();
+	            File f1 = new File(nombreArch);
+	            f1.delete();
+	            File f2 = new File("copia.dat");
+	            f2.renameTo(f1);
 	        }
 	 }
 }

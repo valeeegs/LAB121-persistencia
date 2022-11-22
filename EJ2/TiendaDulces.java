@@ -23,6 +23,12 @@ public class TiendaDulces extends Tienda implements java.io.Serializable{
 		System.out.println("*********************************");
 	}
 
+	public void duplicarPrecio() {
+		for(int i=0; i<nroDulces; i++) {
+			dulces[i].setPrecio(dulces[i].getPrecio() * 2);
+		}
+	}
+	
 	public int getNroDulces() {
 		return nroDulces;
 	}

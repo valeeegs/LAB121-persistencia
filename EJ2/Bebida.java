@@ -25,6 +25,13 @@ public class Bebida implements java.io.Serializable{
 		System.out.println("\tLitros: " + litros);
 		System.out.println("\t------------------------");
 	}
+	
+	public boolean multiplosLitros(int x) {
+		if(litros % x == 0) {
+			return true;
+		}
+		return false;
+	}
 
 	public String getMarca() {
 		return marca;

@@ -5,7 +5,7 @@ public class TiendaBebidas extends Tienda implements java.io.Serializable{
 	private String regSanitario;
 	
 	public TiendaBebidas() {
-		super(104683, "Fresh", "Calle 15");
+		super(104683, "ORO", "Calle 15");
 		nroBebidas = 2;
 		bebidas[0] = new Bebida();
 		bebidas[1] = new Bebida("Coca Cola", "Fanta", 12, 3);
@@ -32,7 +32,23 @@ public class TiendaBebidas extends Tienda implements java.io.Serializable{
 		}
 		return true;
 	}
-
+	
+	public boolean MultiploLitros(int lit) {
+		boolean flag = false;
+		for(int i=0; i<nroBebidas; i++) {
+			if(bebidas[i].multiplosLitros(lit)) {
+				flag = true;
+				for(int j=i; j<this.nroBebidas-1; j++) {
+                    bebidas[j] = bebidas[j+1];
+                }
+                nroBebidas -= 1;
+                i--;
+			}
+		}
+		
+		return flag;
+	}
+	
 	public int getNroBebidas() {
 		return nroBebidas;
 	}

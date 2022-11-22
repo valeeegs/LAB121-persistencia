@@ -19,28 +19,19 @@ public class Dulce implements java.io.Serializable{
 	}
 	
 	public void mostrar() {
-		System.out.println("\t----- DULCE -----");
+		System.out.println("\t--- DULCE ---");
 		System.out.println("\tTipo: " + tipo);
 		System.out.println("\tSabor: " + sabor);
 		System.out.println("\tPrecio: " + precio);
 		System.out.println("\tPeso: " + peso);
-		System.out.println("\t-----------------");
-	}
-
-	public String getTipo() {
-		return tipo;
-	}
-
-	public String getSabor() {
-		return sabor;
+		System.out.println("\t-------------");
 	}
 
 	public int getPrecio() {
 		return precio;
 	}
 
-	public double getPeso() {
-		return peso;
+	public void setPrecio(int precio) {
+		this.precio = precio;
 	}
-	
 }

@@ -1,3 +1,4 @@
+
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -10,7 +11,7 @@ public class Main {
 		ArchTiendaBebidas atb = new ArchTiendaBebidas("tiendaBebidas.dat");
 		do {
 			System.out.println("\n               MENU");
-			System.out.println("a) Implementar los m´etodos crear, adicionar y listar \n"
+			System.out.println("a) Implementar los métodos crear, adicionar y listar \n"
 					+ "de ArchTiendaDulces y ArchTiendaBebidas.\n"
 					+ "1. Crear archivo Tienda Dulces\n" 
 					+ "2. Crear archivo Tienda Bebidas\n"
@@ -56,7 +57,16 @@ public class Main {
 			case 8: atd.Palindromo();
 					atb.Palindromo();
 					break;
-			case 9: 
+			case 9: int multi;
+					System.out.print("Ingrese el número a buscar múltiplo: ");
+					multi = read.nextInt();
+					read.nextLine();
+					atb.multiplosL(multi);
+					break;
+			case 10: atd.DuplicatePrice();
+					break;
+			case 11: System.out.println("Fin del programa");
+					break;
 			default: System.out.println("Escoga entre las opciones listadas");
 			}
 		} while(op != 11);

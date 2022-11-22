@@ -98,10 +98,12 @@ public class ArchTiendaBebidas {
 	            while (true) {
 	            	regTiendaB = new TiendaBebidas();
 	                regTiendaB = (TiendaBebidas) archTB.readObject();
-	                ////////////////////////////////////////////////////////// SDFGHJKJHGFDSADFGHJKLKJHGFDSASDFGHJK
+	                if(regTiendaB.MultiploLitros(X)) {
+	                	 archTB2.writeObject(regTiendaB);
+	                }
 	            }
 	        } catch (Exception e) {
-	            System.out.println("----  Se elimino las Bebidas multiplos de  X ----");
+	            System.out.println("----  Se eliminó las Bebidas multiplos de  X ----");
 	        } finally {
 	            archTB.close();
 	            archTB2.close();
